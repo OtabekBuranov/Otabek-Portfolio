@@ -144,7 +144,7 @@ const WorkTabs = () => {
   const jobs = [
     {
       company: "BRB Lux Limo",
-      role: "Digital Marketing & Client Manager",
+      role: "Digital Marketing & Client Relations",
       period: "05/2022–Present",
       location: "SF, CA",
       desc: "Grew Instagram to 30K accounts reached, drove +30% lead volume via SEO and Google Analytics. Managed full digital presence across Instagram, Facebook, Google Business Profile, and Yelp — including CMS updates, reputation management, and paid promotions.",
@@ -155,7 +155,7 @@ const WorkTabs = () => {
     },
     {
       company: "Captify Glass",
-      role: "Head Social Media Manager",
+      role: "Head Social Media Manager & Sales Specialist",
       period: "06/2025–09/2025",
       location: "SF, CA",
       desc: "50K+ accounts reached across Instagram, TikTok, Facebook, X (Twitter), and YouTube Shorts. Produced 5+ content pieces daily, built 2-week content calendars, and executed campaigns across 15 optical stores and 8 senior living centers.",
@@ -175,7 +175,7 @@ const WorkTabs = () => {
     },
     {
       company: "Cal State Fullerton Athletics",
-      role: "Photography Intern, Media Team",
+      role: "Media Team Intern - Photographer",
       period: "08/2023–02/2025",
       location: "Fullerton, CA",
       desc: "1,000+ photos/game same-day turnaround, promoted athletics to 5K+ followers",
