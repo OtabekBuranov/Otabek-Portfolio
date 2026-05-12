@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "f15VvmLJJyGsjGMeKLA-e"
+uri = "file://artifacts/portfolio/public/images/photo-1.png"
+type = "image"
+title = "basketball sports action photography"
+
+[[generated]]
+id = "ve2Pqb6LwKt-uhBMJg1Kv"
+uri = "file://artifacts/portfolio/public/images/photo-2.png"
+type = "image"
+title = "baseball sports action photography"
+
+[[generated]]
+id = "YTPXJgpBwgCa7YNO5ofhx"
+uri = "file://artifacts/portfolio/public/images/photo-3.png"
+type = "image"
+title = "lifestyle corporate event photography"
+
+[[generated]]
+id = "fZuCq-ZnCqtbzsyCZLJ3W"
+uri = "file://artifacts/portfolio/public/images/photo-4.png"
+type = "image"
+title = "editorial portrait fashion photography"
+
+[[generated]]
+id = "r7I5aHnCrduchNav01APt"
+uri = "file://artifacts/portfolio/public/images/photo-5.png"
+type = "image"
+title = "luxury limo transport photography"
+
+[[generated]]
+id = "zzlv0KjdLrtbzN1hqAx2Y"
+uri = "file://artifacts/portfolio/public/images/photo-6.png"
+type = "image"
+title = "candid event photojournalist style"
