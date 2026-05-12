@@ -260,104 +260,87 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section id="hero" className="relative min-h-[90dvh] flex flex-col justify-center pt-24 pb-16 overflow-hidden">
         <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-
-            {/* Left: text */}
-            <motion.div
-              className="flex-1 max-w-2xl"
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-            >
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-card border border-border text-xs font-medium text-muted-foreground mb-8 shadow-sm">
-                <MapPin className="w-3 h-3 text-secondary" />
-                <span>San Francisco Bay Area · Open to Relocate</span>
-              </motion.div>
-
-              <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[1.05] mb-4">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Otabek Buranov</span>
-              </motion.h1>
-
-              <motion.h2 variants={fadeIn} className="text-xl md:text-2xl font-display font-medium text-foreground mb-6 tracking-tight">
-                Digital Marketing Specialist & Data Analyst
-              </motion.h2>
-
-              <motion.p variants={fadeIn} className="text-base md:text-lg text-muted-foreground font-light max-w-xl mb-10 leading-relaxed">
-                I blend creative storytelling with data-driven strategy to grow brands through high-impact content, smart analytics, and digital experiences that convert.
-              </motion.p>
-
-              <motion.div variants={fadeIn} className="flex flex-wrap gap-3 mb-12">
-                <Button
-                  size="lg"
-                  className="rounded-none px-7 h-11 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-300"
-                  onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-                  data-testid="button-view-work"
-                >
-                  View My Work <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-none px-7 h-11 text-sm font-semibold border-border hover:bg-muted transition-all duration-300"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  data-testid="button-contact"
-                >
-                  Contact Me
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  asChild
-                  className="rounded-none px-7 h-11 text-sm font-semibold border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                  data-testid="button-resume"
-                >
-                  <a href="/Otabek_Buranov_Resume.pdf" download="Otabek_Buranov_Resume.pdf">
-                    <Download className="mr-2 w-4 h-4" /> Resume
-                  </a>
-                </Button>
-              </motion.div>
-
-              <motion.div variants={fadeIn} className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-border pt-8">
-                {[
-                  { value: 50, suffix: 'K+', label: 'Accounts Reached' },
-                  { value: 30, suffix: '%', label: 'Lead Increase' },
-                  { value: 4, suffix: ' Yrs', label: 'Experience' },
-                  { value: 35, suffix: '', label: 'GPA', display: '3.5' }
-                ].map((metric, i) => (
-                  <div key={i} className="flex flex-col">
-                    <span className="text-3xl font-display font-bold text-foreground mb-1">
-                      {metric.display ? metric.display : <AnimatedCounter value={metric.value} suffix={metric.suffix} />}
-                    </span>
-                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">{metric.label}</span>
-                  </div>
-                ))}
-              </motion.div>
+          <motion.div
+            className="max-w-3xl"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-card border border-border text-xs font-medium text-muted-foreground mb-8 shadow-sm">
+              <MapPin className="w-3 h-3 text-secondary" />
+              <span>San Francisco Bay Area · Open to Relocate</span>
             </motion.div>
 
-            {/* Right: profile photo */}
-            <motion.div
-              className="relative flex-shrink-0 hidden md:block"
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="relative w-64 xl:w-72">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-secondary/10 rounded-full blur-2xl pointer-events-none" />
+            {/* Name + photo inline */}
+            <motion.div variants={fadeIn} className="flex items-center gap-5 mb-4">
+              <div className="relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden ring-2 ring-primary/20 shadow-md">
+                <div className="absolute inset-0 bg-gradient-to-b from-muted/40 to-muted/80" />
                 <img
                   src={profilePhoto}
                   alt="Otabek Buranov"
-                  className="relative w-full object-contain object-bottom drop-shadow-xl"
-                  style={{ aspectRatio: '3/4' }}
+                  className="relative w-full h-full object-cover object-top scale-110"
                 />
-                <div className="absolute -bottom-2 -right-2 bg-card border border-border shadow-md px-3 py-1.5 rounded-sm">
-                  <p className="text-[10px] font-mono text-muted-foreground">Cal State Fullerton</p>
-                  <p className="text-xs font-display font-bold text-primary">May 2026 · GPA 3.5</p>
-                </div>
               </div>
+              <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[1.05]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Otabek Buranov</span>
+              </h1>
             </motion.div>
 
-          </div>
+            <motion.h2 variants={fadeIn} className="text-xl md:text-2xl font-display font-medium text-foreground mb-6 tracking-tight">
+              Digital Marketing Specialist & Data Analyst
+            </motion.h2>
+
+            <motion.p variants={fadeIn} className="text-base md:text-lg text-muted-foreground font-light max-w-xl mb-10 leading-relaxed">
+              I blend creative storytelling with data-driven strategy to grow brands through high-impact content, smart analytics, and digital experiences that convert.
+            </motion.p>
+
+            <motion.div variants={fadeIn} className="flex flex-wrap gap-3 mb-12">
+              <Button
+                size="lg"
+                className="rounded-none px-7 h-11 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-300"
+                onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+                data-testid="button-view-work"
+              >
+                View My Work <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-none px-7 h-11 text-sm font-semibold border-border hover:bg-muted transition-all duration-300"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                data-testid="button-contact"
+              >
+                Contact Me
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="rounded-none px-7 h-11 text-sm font-semibold border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                data-testid="button-resume"
+              >
+                <a href="/Otabek_Buranov_Resume.pdf" download="Otabek_Buranov_Resume.pdf">
+                  <Download className="mr-2 w-4 h-4" /> Resume
+                </a>
+              </Button>
+            </motion.div>
+
+            <motion.div variants={fadeIn} className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-border pt-8">
+              {[
+                { value: 50, suffix: 'K+', label: 'Accounts Reached' },
+                { value: 30, suffix: '%', label: 'Lead Increase' },
+                { value: 4, suffix: ' Yrs', label: 'Experience' },
+                { value: 35, suffix: '', label: 'GPA', display: '3.5' }
+              ].map((metric, i) => (
+                <div key={i} className="flex flex-col">
+                  <span className="text-3xl font-display font-bold text-foreground mb-1">
+                    {metric.display ? metric.display : <AnimatedCounter value={metric.value} suffix={metric.suffix} />}
+                  </span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">{metric.label}</span>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
