@@ -291,7 +291,7 @@ export default function Home() {
             </motion.h2>
 
             <motion.p variants={fadeIn} className="text-base md:text-lg text-muted-foreground font-light max-w-xl mb-10 leading-relaxed">
-              I blend creative storytelling with data-driven strategy to grow brands through high-impact content, smart analytics, and digital experiences that convert.
+              Specializing in the intersection of creative marketing and data analytics — building brand presence, driving qualified leads, and delivering digital strategies that produce measurable results across social, search, and beyond.
             </motion.p>
 
             <motion.div variants={fadeIn} className="flex flex-wrap gap-3 mb-12">
