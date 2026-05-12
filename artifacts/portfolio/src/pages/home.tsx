@@ -291,7 +291,7 @@ export default function Home() {
 
             {/* Name + photo inline */}
             <motion.div variants={fadeIn} className="flex items-center gap-5 mb-4">
-              <div className="relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden ring-2 ring-primary/20 shadow-md">
+              <div className="relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-md">
                 <div className="absolute inset-0 bg-gradient-to-b from-muted/40 to-muted/80" />
                 <img
                   src={profilePhoto}
