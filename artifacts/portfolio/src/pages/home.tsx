@@ -233,6 +233,8 @@ const WorkTabs = () => {
               <img
                 src={brbWebsite}
                 alt="BRB Lux Limo Website"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute top-3 left-3 bg-background/90 backdrop-blur border border-border text-[10px] px-2 py-1 font-medium tracking-wide">
@@ -250,7 +252,7 @@ const WorkTabs = () => {
 
           <div className="group flex flex-col border border-border bg-card overflow-hidden shadow-sm">
             <div className="h-56 relative overflow-hidden bg-muted">
-              <img src={captifyWebsite} alt="Captify Glass Website" className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700" />
+              <img src={captifyWebsite} alt="Captify Glass Website" loading="lazy" decoding="async" className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700" />
               <div className="absolute top-3 left-3 bg-background/90 backdrop-blur border border-border text-[10px] px-2 py-1 font-medium tracking-wide">
                 Social Media Management
               </div>
@@ -302,6 +304,8 @@ export default function Home() {
                 <img
                   src={profilePhoto}
                   alt="Otabek Buranov"
+                  fetchPriority="high"
+                  decoding="sync"
                   className="relative w-full h-full object-cover object-top scale-110"
                 />
               </div>
@@ -482,7 +486,7 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-1 mb-6 flex-grow content-start">
                   {[brb1, brb2, brb3, brb4, brb5, brb6].map((src, i) => (
                     <div key={i} className="aspect-square relative overflow-hidden bg-muted">
-                      <img src={src} alt={`BRB Lux Limo post ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img src={src} alt={`BRB Lux Limo post ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>
@@ -520,7 +524,7 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-1 mb-6 flex-grow content-start">
                   {[captify1, captify2, captify3, captify4, captify5, captify6].map((src, i) => (
                     <div key={i} className="aspect-square relative overflow-hidden bg-muted">
-                      <img src={src} alt={`Captify Glass post ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img src={src} alt={`Captify Glass post ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>
@@ -558,7 +562,7 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-1 mb-6 flex-grow content-start">
                   {[photo1, photo2, photo3, photo4, photo5, photo6].map((src, i) => (
                     <div key={i} className="aspect-square relative overflow-hidden bg-muted">
-                      <img src={src} alt="Instagram Post" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
+                      <img src={src} alt={`ShotBy_OT post ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>
