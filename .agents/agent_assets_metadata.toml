@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "f15VvmLJJyGsjGMeKLA-e"
@@ -36,3 +35,9 @@ id = "zzlv0KjdLrtbzN1hqAx2Y"
 uri = "file://artifacts/portfolio/public/images/photo-6.png"
 type = "image"
 title = "candid event photojournalist style"
+
+[[outputs]]
+id = "jo4Q116yAhk0MrxWQ6tks"
+uri = "file://artifacts/portfolio/public/og-image.png"
+type = "image"
+title = "OG Link Preview Image"
