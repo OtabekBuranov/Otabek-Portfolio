@@ -336,7 +336,7 @@ export default function Home() {
 
             {/* Right: profile photo */}
             <motion.div
-              className="relative flex-shrink-0 hidden lg:block"
+              className="relative flex-shrink-0 hidden md:block"
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
