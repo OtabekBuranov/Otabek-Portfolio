@@ -205,7 +205,7 @@ const WorkTabs = () => {
       {activeTab === 'marketing' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {jobs.map((job, i) => (
-            <div key={i} className="flex flex-col p-6 bg-card border border-border hover:border-primary/30 transition-colors shadow-sm">
+            <motion.div key={i} className="flex flex-col p-6 bg-card border border-border hover:border-primary/30 transition-colors shadow-sm" whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}>
               <div className="flex justify-between items-start mb-2">
                 <h3 className="font-display font-bold text-lg">{job.company}</h3>
                 <span className="text-xs font-mono text-muted-foreground px-2 py-1 bg-muted border border-border shrink-0 ml-2">{job.period}</span>
@@ -221,14 +221,14 @@ const WorkTabs = () => {
                   ))}
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
 
       {activeTab === 'digital' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="group flex flex-col border border-border bg-card overflow-hidden shadow-sm">
+          <motion.div className="group flex flex-col border border-border bg-card overflow-hidden shadow-sm" whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}>
             <div className="h-56 relative overflow-hidden bg-muted">
               <img
                 src={brbWebsite}
@@ -248,9 +248,9 @@ const WorkTabs = () => {
                 <a href="https://brbluxlimo.com/" target="_blank" rel="noreferrer">Visit Site ↗</a>
               </Button>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="group flex flex-col border border-border bg-card overflow-hidden shadow-sm">
+          <motion.div className="group flex flex-col border border-border bg-card overflow-hidden shadow-sm" whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}>
             <div className="h-56 relative overflow-hidden bg-muted">
               <img src={captifyWebsite} alt="Captify Glass Website" loading="lazy" decoding="async" className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700" />
               <div className="absolute top-3 left-3 bg-background/90 backdrop-blur border border-border text-[10px] px-2 py-1 font-medium tracking-wide">
@@ -269,7 +269,7 @@ const WorkTabs = () => {
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
     </div>
@@ -402,8 +402,8 @@ export default function Home() {
                 tags: ["Lightroom", "Premiere Pro", "Canva", "CapCut", "Adobe CC", "Photography", "Reels / Shorts"]
               }
             ].map((card, idx) => (
-              <motion.div key={idx} variants={fadeIn}>
-                <Card className="bg-card border-border rounded-none h-full hover:shadow-md hover:border-primary/30 transition-all duration-300 shadow-sm">
+              <motion.div key={idx} variants={fadeIn} whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}>
+                <Card className="bg-card border-border rounded-none h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300 shadow-sm">
                   <CardContent className="p-8 flex flex-col h-full">
                     <div className="w-12 h-12 rounded-full bg-muted border border-border flex items-center justify-center mb-6">
                       {card.icon}
@@ -459,7 +459,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
 
               {/* BRB Lux Limo */}
-              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
+              <motion.div variants={fadeIn} whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-4 mb-5 shrink-0">
                   <div className="w-14 h-14 shrink-0 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
                     <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">B</div>
@@ -492,7 +492,7 @@ export default function Home() {
               </motion.div>
 
               {/* Captify Glass */}
-              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
+              <motion.div variants={fadeIn} whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-4 mb-5 shrink-0">
                   <div className="w-14 h-14 shrink-0 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
                     <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">C</div>
@@ -525,7 +525,7 @@ export default function Home() {
               </motion.div>
 
               {/* ShotBy_OT */}
-              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
+              <motion.div variants={fadeIn} whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-4 mb-5 shrink-0">
                   <div className="w-14 h-14 shrink-0 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
                     <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">O</div>
@@ -588,6 +588,7 @@ export default function Home() {
                 <motion.div
                   key={i}
                   variants={fadeIn}
+                  whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
                   className="flex items-center justify-between p-4 bg-card border border-border hover:border-primary/40 transition-colors shadow-sm"
                 >
                   <div className="flex items-center gap-3">
