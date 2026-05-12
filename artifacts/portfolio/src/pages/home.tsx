@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, Mail, MapPin, ExternalLink, Linkedin, Instagram, Camera, Award, Database, Target, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -41,6 +41,22 @@ const staggerContainer = {
     transition: { staggerChildren: 0.1 }
   }
 };
+
+function useVisitorCount() {
+  const [count, setCount] = useState<number | null>(null);
+  const called = useRef(false);
+
+  useEffect(() => {
+    if (called.current) return;
+    called.current = true;
+    fetch('https://api.counterapi.dev/v1/otabekburanov/portfolio/up')
+      .then(r => r.json())
+      .then(data => { if (typeof data?.count === 'number') setCount(data.count); })
+      .catch(() => {});
+  }, []);
+
+  return count;
+}
 
 function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -253,6 +269,8 @@ const WorkTabs = () => {
 };
 
 export default function Home() {
+  const visitorCount = useVisitorCount();
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white overflow-hidden">
       <NavBar />
@@ -627,7 +645,12 @@ export default function Home() {
       </section>
 
       <footer className="py-6 border-t border-border text-center text-xs text-muted-foreground bg-card">
-        <p>© {new Date().getFullYear()} Otabek Buranov. All rights reserved.</p>
+        <span>© {new Date().getFullYear()} Otabek Buranov. All rights reserved.</span>
+        {visitorCount !== null && (
+          <span className="ml-4 pl-4 border-l border-border">
+            {visitorCount.toLocaleString()} views
+          </span>
+        )}
       </footer>
     </div>
   );
