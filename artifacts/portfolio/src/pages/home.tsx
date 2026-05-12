@@ -341,20 +341,18 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative w-72 xl:w-80">
-                <div className="absolute -inset-4 bg-gradient-to-br from-primary/15 via-secondary/10 to-transparent rounded-full blur-2xl" />
-                <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-muted/60 to-muted shadow-xl">
-                  <img
-                    src={profilePhoto}
-                    alt="Otabek Buranov"
-                    className="w-full object-cover object-top"
-                    style={{ aspectRatio: '3/4' }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
-                </div>
-                <div className="absolute -bottom-3 -right-3 bg-card border border-border shadow-lg px-4 py-2 rounded-sm">
-                  <p className="text-xs font-mono text-muted-foreground">Cal State Fullerton</p>
-                  <p className="text-sm font-display font-bold text-primary">May 2026 · GPA 3.5</p>
+              <div className="relative w-64 xl:w-72">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-secondary/10 rounded-full blur-2xl pointer-events-none" />
+                <img
+                  src={profilePhoto}
+                  alt="Otabek Buranov"
+                  className="relative w-full object-contain object-bottom drop-shadow-xl"
+                  style={{ aspectRatio: '3/4' }}
+                />
+                <div className="absolute -bottom-2 -right-2 bg-card border border-border shadow-md px-3 py-1.5 rounded-sm">
+                  <p className="text-[10px] font-mono text-muted-foreground">Cal State Fullerton</p>
+                  <p className="text-xs font-display font-bold text-primary">May 2026 · GPA 3.5</p>
                 </div>
               </div>
             </motion.div>
