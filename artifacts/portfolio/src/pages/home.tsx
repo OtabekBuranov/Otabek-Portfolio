@@ -19,7 +19,7 @@ import captify4 from '@assets/image_1778569503467.png';
 import captify5 from '@assets/image_1778569548109.png';
 import captify6 from '@assets/image_1778570859157.png';
 
-import brb1 from '@assets/image_1778569619077.png';
+import brb1 from '@assets/image_1778618827474.png';
 import brb2 from '@assets/image_1778569758901.png';
 import brb3 from '@assets/image_1778569814303.png';
 import brb4 from '@assets/image_1778569838867.png';
