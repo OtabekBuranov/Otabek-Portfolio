@@ -27,6 +27,7 @@ import brb5 from '@assets/image_1778569904555.png';
 import brb6 from '@assets/image_1778570000350.png';
 
 import brbWebsite from '@assets/image_1778570197666.png';
+import captifyWebsite from '@assets/image_1778573945230.png';
 import profilePhoto from '@assets/otabek_profile.png';
 
 const fadeIn = {
@@ -249,17 +250,22 @@ const WorkTabs = () => {
 
           <div className="group flex flex-col border border-border bg-card overflow-hidden shadow-sm">
             <div className="h-56 relative overflow-hidden bg-muted">
-              <img src={captifyScreenshot} alt="Captify Glass Content" className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700" />
+              <img src={captifyWebsite} alt="Captify Glass Website" className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700" />
               <div className="absolute top-3 left-3 bg-background/90 backdrop-blur border border-border text-[10px] px-2 py-1 font-medium tracking-wide">
-                Social Content Strategy
+                Social Media Management
               </div>
             </div>
             <div className="p-5 flex flex-col flex-grow bg-card border-t border-border">
               <h3 className="font-display font-bold text-lg mb-1">Captify Glass</h3>
-              <p className="text-sm text-muted-foreground mb-4 flex-grow">Full social media management and content strategy across 15+ optical locations.</p>
-              <Button asChild variant="outline" className="w-full rounded-none border-border hover:border-primary hover:bg-primary/10 text-xs" data-testid="link-captify-instagram">
-                <a href="https://www.instagram.com/captifyglass" target="_blank" rel="noreferrer">@captifyglass on Instagram ↗</a>
-              </Button>
+              <p className="text-sm text-muted-foreground mb-3 flex-grow">Full social media management and content strategy across 15+ optical locations — driving 50K+ accounts reached.</p>
+              <div className="flex gap-2">
+                <Button asChild variant="outline" className="flex-1 rounded-none border-border hover:border-primary hover:bg-primary/10 text-xs" data-testid="link-captify-website">
+                  <a href="https://captify.glass" target="_blank" rel="noreferrer">captify.glass ↗</a>
+                </Button>
+                <Button asChild variant="outline" className="flex-1 rounded-none border-border hover:border-primary hover:bg-primary/10 text-xs" data-testid="link-captify-instagram">
+                  <a href="https://www.instagram.com/captifyglass" target="_blank" rel="noreferrer">@captifyglass ↗</a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
