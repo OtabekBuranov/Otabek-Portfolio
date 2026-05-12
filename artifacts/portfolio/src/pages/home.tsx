@@ -456,118 +456,103 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight">Social Presence</h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
 
               {/* BRB Lux Limo */}
-              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col h-full shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
-                    <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">
-                      B
-                    </div>
+              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-5 shrink-0">
+                  <div className="w-14 h-14 shrink-0 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
+                    <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">B</div>
                   </div>
                   <div>
                     <a href="https://www.instagram.com/brbluxlimo" target="_blank" rel="noreferrer" className="font-bold text-lg hover:underline decoration-primary underline-offset-4">@brbluxlimo</a>
                     <p className="text-xs text-muted-foreground mt-0.5">Luxury Transport Brand</p>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  <div className="bg-muted border border-border p-3 text-center">
-                    <p className="text-lg font-bold text-foreground">30K+</p>
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Accounts Reached</p>
+                <div className="grid grid-cols-2 gap-2 mb-5 shrink-0">
+                  <div className="bg-muted border border-border p-3 text-center h-[68px] flex flex-col items-center justify-center">
+                    <p className="text-lg font-bold text-foreground leading-tight">30K+</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">Accounts Reached</p>
                   </div>
-                  <div className="bg-muted border border-border p-3 text-center">
-                    <p className="text-lg font-bold text-foreground">Lead Gen</p>
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Primary Focus</p>
+                  <div className="bg-muted border border-border p-3 text-center h-[68px] flex flex-col items-center justify-center">
+                    <p className="text-lg font-bold text-foreground leading-tight">+30%</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">Lead Volume</p>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-3 gap-1 mb-6 flex-grow content-start">
+                <div className="grid grid-cols-3 gap-1 mb-5">
                   {[brb1, brb2, brb3, brb4, brb5, brb6].map((src, i) => (
                     <div key={i} className="aspect-square relative overflow-hidden bg-muted">
                       <img src={src} alt={`BRB Lux Limo post ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>
-
-                <Button asChild className="w-full rounded-sm bg-primary/10 text-primary hover:bg-primary hover:text-white border-0 transition-colors">
+                <Button asChild className="w-full rounded-sm bg-primary/10 text-primary hover:bg-primary hover:text-white border-0 transition-colors shrink-0">
                   <a href="https://www.instagram.com/brbluxlimo" target="_blank" rel="noreferrer">Follow</a>
                 </Button>
               </motion.div>
 
               {/* Captify Glass */}
-              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col h-full shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
-                    <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">
-                      C
-                    </div>
+              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-5 shrink-0">
+                  <div className="w-14 h-14 shrink-0 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
+                    <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">C</div>
                   </div>
                   <div>
                     <a href="https://www.instagram.com/captifyglass" target="_blank" rel="noreferrer" className="font-bold text-lg hover:underline decoration-primary underline-offset-4">@captifyglass</a>
                     <p className="text-xs text-muted-foreground mt-0.5">Health-Tech Brand</p>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  <div className="bg-muted border border-border p-3 text-center">
-                    <p className="text-lg font-bold text-foreground">50K+</p>
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Accounts Reached</p>
+                <div className="grid grid-cols-2 gap-2 mb-5 shrink-0">
+                  <div className="bg-muted border border-border p-3 text-center h-[68px] flex flex-col items-center justify-center">
+                    <p className="text-lg font-bold text-foreground leading-tight">50K+</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">Accounts Reached</p>
                   </div>
-                  <div className="bg-muted border border-border p-3 text-center">
-                    <p className="text-lg font-bold text-foreground">15+</p>
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Locations</p>
+                  <div className="bg-muted border border-border p-3 text-center h-[68px] flex flex-col items-center justify-center">
+                    <p className="text-lg font-bold text-foreground leading-tight">15+</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">Locations</p>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-3 gap-1 mb-6 flex-grow content-start">
+                <div className="grid grid-cols-3 gap-1 mb-5">
                   {[captify1, captify2, captify3, captify4, captify5, captify6].map((src, i) => (
                     <div key={i} className="aspect-square relative overflow-hidden bg-muted">
                       <img src={src} alt={`Captify Glass post ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>
-
-                <Button asChild className="w-full rounded-sm bg-primary/10 text-primary hover:bg-primary hover:text-white border-0 transition-colors">
+                <Button asChild className="w-full rounded-sm bg-primary/10 text-primary hover:bg-primary hover:text-white border-0 transition-colors shrink-0">
                   <a href="https://www.instagram.com/captifyglass" target="_blank" rel="noreferrer">Follow</a>
                 </Button>
               </motion.div>
 
               {/* ShotBy_OT */}
-              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col h-full shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
-                    <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">
-                      O
-                    </div>
+              <motion.div variants={fadeIn} className="bg-card border border-border p-6 rounded-none flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-4 mb-5 shrink-0">
+                  <div className="w-14 h-14 shrink-0 rounded-full p-0.5 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]">
+                    <div className="w-full h-full bg-card rounded-full border-2 border-card flex items-center justify-center text-xl font-bold text-foreground">O</div>
                   </div>
                   <div>
                     <a href="https://www.instagram.com/shotby_ot" target="_blank" rel="noreferrer" className="font-bold text-lg hover:underline decoration-primary underline-offset-4">@shotby_ot</a>
                     <p className="text-xs text-muted-foreground mt-0.5">Events & Sports</p>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  <div className="bg-muted border border-border p-3 text-center">
-                    <p className="text-lg font-bold text-foreground">20K+</p>
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Reach</p>
+                <div className="grid grid-cols-2 gap-2 mb-5 shrink-0">
+                  <div className="bg-muted border border-border p-3 text-center h-[68px] flex flex-col items-center justify-center">
+                    <p className="text-lg font-bold text-foreground leading-tight">20K+</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">Accounts Reached</p>
                   </div>
-                  <div className="bg-muted border border-border p-3 text-center">
-                    <p className="text-lg font-bold text-foreground">550+</p>
-                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Followers</p>
+                  <div className="bg-muted border border-border p-3 text-center h-[68px] flex flex-col items-center justify-center">
+                    <p className="text-lg font-bold text-foreground leading-tight">550+</p>
+                    <p className="text-[10px] uppercase tracking-wider text-muted-foreground mt-0.5">Followers</p>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-3 gap-1 mb-6 flex-grow content-start">
+                <div className="grid grid-cols-3 gap-1 mb-5">
                   {[photo1, photo2, photo3, photo4, photo5, photo6].map((src, i) => (
                     <div key={i} className="aspect-square relative overflow-hidden bg-muted">
                       <img src={src} alt={`ShotBy_OT post ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
                 </div>
-
-                <Button asChild className="w-full rounded-sm bg-primary/10 text-primary hover:bg-primary hover:text-white border-0 transition-colors">
+                <Button asChild className="w-full rounded-sm bg-primary/10 text-primary hover:bg-primary hover:text-white border-0 transition-colors shrink-0">
                   <a href="https://www.instagram.com/shotby_ot" target="_blank" rel="noreferrer">Follow</a>
                 </Button>
               </motion.div>
