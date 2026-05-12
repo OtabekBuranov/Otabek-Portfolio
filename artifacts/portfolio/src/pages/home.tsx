@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronDown, Mail, MapPin, ExternalLink, Camera, BarChart, Code, Briefcase, GraduationCap, Globe, Linkedin, Instagram } from 'lucide-react';
+import { ArrowRight, ChevronDown, Mail, MapPin, ExternalLink, Camera, BarChart, Code, Briefcase, GraduationCap, Globe, Linkedin, Instagram, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import certImage from '@assets/image_1778567167965.png';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -100,7 +101,7 @@ export default function Home() {
             </motion.h1>
             
             <motion.p variants={fadeIn} className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mb-10 leading-relaxed">
-              Digital Marketer & Visual Storyteller bridging data-driven strategy with cinematic aesthetics.
+              Digital Marketing Specialist & Data Analyst who blends creative storytelling with data-driven strategy. I grow brands through high-impact content, smart analytics, and digital experiences that convert.
             </motion.p>
             
             <motion.div variants={fadeIn} className="flex flex-wrap gap-4">
@@ -230,7 +231,8 @@ export default function Home() {
                   location: "San Francisco, CA",
                   description: "Grew Instagram to 30,000 accounts reached, increased qualified lead volume 30% via SEO & Google Analytics, managed company website & CMS, coordinated luxury transport logistics.",
                   icon: <Briefcase className="w-4 h-4 text-foreground" />,
-                  link: "@brbluxlimo"
+                  instagramLink: { label: "@brbluxlimo", url: "https://www.instagram.com/brbluxlimo" },
+                  websiteLink: { label: "brbluxlimo.com", url: "https://brbluxlimo.com/" }
                 },
                 {
                   company: "Captify Glass",
@@ -238,7 +240,8 @@ export default function Home() {
                   period: "06/2025 – 09/2025",
                   location: "San Francisco, CA",
                   description: "Reached 50,000+ accounts across all channels, delivered 5+ pieces of content daily with 24-hour turnaround, built 2-week rolling content calendars, expanded into 15 optical stores & 8 senior living centers.",
-                  icon: <BarChart className="w-4 h-4 text-foreground" />
+                  icon: <BarChart className="w-4 h-4 text-foreground" />,
+                  instagramLink: { label: "@captifyglass", url: "https://www.instagram.com/captifyglass" }
                 },
                 {
                   company: "ShotBy_OT",
@@ -246,7 +249,8 @@ export default function Home() {
                   period: "12/2022 – Present",
                   location: "California",
                   description: "20,000+ accounts reached on Instagram, 550+ followers, A/B tested content & ads, captured 6+ hour events with mirrorless & DSLR cameras, pitched photography packages to clients.",
-                  icon: <Camera className="w-4 h-4 text-foreground" />
+                  icon: <Camera className="w-4 h-4 text-foreground" />,
+                  instagramLink: { label: "@shotby_ot", url: "https://www.instagram.com/shotby_ot" }
                 },
                 {
                   company: "Cal State Fullerton Athletics",
@@ -270,9 +274,18 @@ export default function Home() {
                     </div>
                     <p className="text-sm font-medium text-foreground mb-1">{job.role} • <span className="text-muted-foreground font-normal">{job.location}</span></p>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-4">{job.description}</p>
-                    {job.link && (
-                      <p className="text-xs font-medium mt-4 text-foreground flex items-center gap-1"><Instagram className="w-3 h-3" /> {job.link}</p>
-                    )}
+                    <div className="flex flex-wrap gap-4 mt-4">
+                      {job.instagramLink && (
+                        <a href={job.instagramLink.url} target="_blank" rel="noreferrer" className="text-xs font-medium text-foreground flex items-center gap-1 hover:text-muted-foreground transition-colors" data-testid={`link-ig-${index}`}>
+                          <Instagram className="w-3 h-3" /> {job.instagramLink.label}
+                        </a>
+                      )}
+                      {job.websiteLink && (
+                        <a href={job.websiteLink.url} target="_blank" rel="noreferrer" className="text-xs font-medium text-foreground flex items-center gap-1 hover:text-muted-foreground transition-colors" data-testid={`link-web-${index}`}>
+                          <ExternalLink className="w-3 h-3" /> {job.websiteLink.label}
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -327,6 +340,63 @@ export default function Home() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CERTIFICATIONS SECTION */}
+      <section id="certifications" className="py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto"
+          >
+            <motion.div variants={fadeIn} className="flex items-center gap-4 mb-16">
+              <Award className="w-8 h-8 text-muted-foreground" />
+              <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight">Certifications</h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <motion.div variants={fadeIn} className="space-y-4">
+                {[
+                  { name: "Social Media Marketing Professional", issuer: "Hootsuite" },
+                  { name: "Generative AI for Digital Marketers", issuer: "LinkedIn" },
+                  { name: "Advance Your Content Marketing & SEO Skills", issuer: "LinkedIn" },
+                  { name: "Microsoft PowerPoint", issuer: "LinkedIn" },
+                  { name: "Essential Skills In Marketing", issuer: "LinkedIn" },
+                  { name: "SEO Marketing Tools", issuer: "LinkedIn" },
+                ].map((cert, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeIn}
+                    className="flex items-center justify-between p-4 rounded-xl border border-border/50 bg-secondary/20 hover:bg-secondary/40 transition-colors duration-300 group"
+                    data-testid={`cert-item-${i}`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-foreground group-hover:scale-150 transition-transform duration-300" />
+                      <span className="font-medium text-sm text-foreground">{cert.name}</span>
+                    </div>
+                    <Badge variant="secondary" className="text-xs font-normal shrink-0 ml-4">{cert.issuer}</Badge>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                variants={fadeIn}
+                className="relative rounded-2xl overflow-hidden border border-border/50 shadow-lg"
+              >
+                <img
+                  src={certImage}
+                  alt="Certifications"
+                  className="w-full object-contain bg-white"
+                  data-testid="img-certifications"
+                />
+                <div className="absolute inset-0 pointer-events-none border border-white/5 rounded-2xl" />
+              </motion.div>
             </div>
           </motion.div>
         </div>
