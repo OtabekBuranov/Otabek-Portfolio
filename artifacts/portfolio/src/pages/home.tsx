@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { ArrowRight, Mail, MapPin, ExternalLink, Linkedin, Instagram, Camera, Award, Database, Target, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -17,6 +17,7 @@ import captify2 from '@assets/image_1778569434299.png';
 import captify3 from '@assets/image_1778569472441.png';
 import captify4 from '@assets/image_1778569503467.png';
 import captify5 from '@assets/image_1778569548109.png';
+import captify6 from '@assets/image_1778570859157.png';
 
 import brb1 from '@assets/image_1778569619077.png';
 import brb2 from '@assets/image_1778569758901.png';
@@ -26,6 +27,7 @@ import brb5 from '@assets/image_1778569904555.png';
 import brb6 from '@assets/image_1778570000350.png';
 
 import brbWebsite from '@assets/image_1778570197666.png';
+import profilePhoto from '@assets/otabek_profile.png';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -36,28 +38,44 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
+    transition: { staggerChildren: 0.1 }
   }
 };
+
+function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionVal = useMotionValue(0);
+  const spring = useSpring(motionVal, { duration: 1800, bounce: 0 });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
+
+  useEffect(() => {
+    if (isInView) {
+      motionVal.set(value);
+    }
+  }, [isInView, motionVal, value]);
+
+  useEffect(() => {
+    return spring.on('change', (latest) => {
+      if (ref.current) {
+        ref.current.textContent = Math.round(latest).toLocaleString() + suffix;
+      }
+    });
+  }, [spring, suffix]);
+
+  return <span ref={ref}>0{suffix}</span>;
+}
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -112,7 +130,7 @@ const WorkTabs = () => {
       role: "Digital Marketing & Client Manager",
       period: "05/2022–Present",
       location: "SF, CA",
-      desc: "Grew Instagram to 30K accounts, +30% lead volume via SEO, Google Analytics, managed CMS",
+      desc: "Grew Instagram to 30K accounts reached, drove +30% lead volume via SEO and Google Analytics. Managed full digital presence across Instagram, Facebook, Google Business Profile, and Yelp — including CMS updates, reputation management, and paid promotions.",
       links: [
         { label: "@brbluxlimo", url: "https://www.instagram.com/brbluxlimo", icon: <Instagram className="w-3 h-3" /> },
         { label: "brbluxlimo.com", url: "https://brbluxlimo.com", icon: <ExternalLink className="w-3 h-3" /> }
@@ -123,7 +141,7 @@ const WorkTabs = () => {
       role: "Head Social Media Manager",
       period: "06/2025–09/2025",
       location: "SF, CA",
-      desc: "50K+ accounts reached, 5+ content pieces/day, 2-week content calendars, 15 optical stores + 8 senior living centers",
+      desc: "50K+ accounts reached across Instagram, TikTok, Facebook, X (Twitter), and YouTube Shorts. Produced 5+ content pieces daily, built 2-week content calendars, and executed campaigns across 15 optical stores and 8 senior living centers.",
       links: [
         { label: "@captifyglass", url: "https://www.instagram.com/captifyglass", icon: <Instagram className="w-3 h-3" /> }
       ]
@@ -133,7 +151,7 @@ const WorkTabs = () => {
       role: "Freelance Photographer",
       period: "12/2022–Present",
       location: "CA",
-      desc: "20K+ accounts, 550+ followers, A/B tested content and ads to optimize engagement",
+      desc: "20K+ accounts reached, 550+ followers, A/B tested content and ads to optimize engagement",
       links: [
         { label: "@shotby_ot", url: "https://www.instagram.com/shotby_ot", icon: <Instagram className="w-3 h-3" /> }
       ]
@@ -240,97 +258,108 @@ export default function Home() {
       <NavBar />
 
       {/* 1. HERO SECTION */}
-      <section id="hero" className="relative min-h-[90dvh] flex flex-col justify-center pt-24 pb-16">
-        <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col h-full">
-          <motion.div
-            className="max-w-4xl mt-auto"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-card border border-border text-xs font-medium text-muted-foreground mb-8 shadow-sm">
-              <MapPin className="w-3 h-3 text-secondary" />
-              <span>San Francisco Bay Area · Open to Relocate</span>
+      <section id="hero" className="relative min-h-[90dvh] flex flex-col justify-center pt-24 pb-16 overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+            {/* Left: text */}
+            <motion.div
+              className="flex-1 max-w-2xl"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-card border border-border text-xs font-medium text-muted-foreground mb-8 shadow-sm">
+                <MapPin className="w-3 h-3 text-secondary" />
+                <span>San Francisco Bay Area · Open to Relocate</span>
+              </motion.div>
+
+              <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[1.05] mb-4">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Otabek Buranov</span>
+              </motion.h1>
+
+              <motion.h2 variants={fadeIn} className="text-xl md:text-2xl font-display font-medium text-foreground mb-6 tracking-tight">
+                Digital Marketing Specialist & Data Analyst
+              </motion.h2>
+
+              <motion.p variants={fadeIn} className="text-base md:text-lg text-muted-foreground font-light max-w-xl mb-10 leading-relaxed">
+                I blend creative storytelling with data-driven strategy to grow brands through high-impact content, smart analytics, and digital experiences that convert.
+              </motion.p>
+
+              <motion.div variants={fadeIn} className="flex flex-wrap gap-3 mb-12">
+                <Button
+                  size="lg"
+                  className="rounded-none px-7 h-11 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-300"
+                  onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+                  data-testid="button-view-work"
+                >
+                  View My Work <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-none px-7 h-11 text-sm font-semibold border-border hover:bg-muted transition-all duration-300"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  data-testid="button-contact"
+                >
+                  Contact Me
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="rounded-none px-7 h-11 text-sm font-semibold border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                  data-testid="button-resume"
+                >
+                  <a href="/Otabek_Buranov_Resume.pdf" download="Otabek_Buranov_Resume.pdf">
+                    <Download className="mr-2 w-4 h-4" /> Resume
+                  </a>
+                </Button>
+              </motion.div>
+
+              <motion.div variants={fadeIn} className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-border pt-8">
+                {[
+                  { value: 50, suffix: 'K+', label: 'Accounts Reached' },
+                  { value: 30, suffix: '%', label: 'Lead Increase' },
+                  { value: 4, suffix: ' Yrs', label: 'Experience' },
+                  { value: 35, suffix: '', label: 'GPA', display: '3.5' }
+                ].map((metric, i) => (
+                  <div key={i} className="flex flex-col">
+                    <span className="text-3xl font-display font-bold text-foreground mb-1">
+                      {metric.display ? metric.display : <AnimatedCounter value={metric.value} suffix={metric.suffix} />}
+                    </span>
+                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">{metric.label}</span>
+                  </div>
+                ))}
+              </motion.div>
             </motion.div>
 
-            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter leading-[1.1] mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Otabek Buranov</span>
-            </motion.h1>
-
-            <motion.h2 variants={fadeIn} className="text-xl md:text-3xl font-display font-medium text-foreground mb-8 tracking-tight">
-              Digital Marketing Specialist & Data Analyst
-            </motion.h2>
-
-            <motion.p variants={fadeIn} className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl mb-12 leading-relaxed">
-              Digital Marketing Specialist & Data Analyst who blends creative storytelling with data-driven strategy. I grow brands through high-impact content, smart analytics, and digital experiences that convert.
-            </motion.p>
-
-            <motion.div variants={fadeIn} className="flex flex-wrap gap-4 mb-16">
-              <Button
-                size="lg"
-                className="rounded-none px-8 h-12 text-sm font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-300"
-                onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-                data-testid="button-view-work"
-              >
-                View My Work <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-none px-8 h-12 text-sm font-semibold border-border hover:bg-muted transition-all duration-300"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                data-testid="button-contact"
-              >
-                Contact Me
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="rounded-none px-8 h-12 text-sm font-semibold border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300"
-                data-testid="button-resume"
-              >
-                <a href="/Otabek_Buranov_Resume.pdf" download="Otabek_Buranov_Resume.pdf">
-                  <Download className="mr-2 w-4 h-4" /> Resume
-                </a>
-              </Button>
-            </motion.div>
-
-            <motion.div variants={fadeIn} className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-border pt-8">
-              {[
-                { value: "50K+", label: "Accounts Reached" },
-                { value: "30%", label: "Lead Increase" },
-                { value: "4 Yrs", label: "Experience" },
-                { value: "3.5", label: "GPA" }
-              ].map((metric, i) => (
-                <div key={i} className="flex flex-col">
-                  <span className="text-3xl font-display font-bold text-foreground mb-1">{metric.value}</span>
-                  <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">{metric.label}</span>
+            {/* Right: profile photo */}
+            <motion.div
+              className="relative flex-shrink-0 hidden lg:block"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="relative w-72 xl:w-80">
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary/15 via-secondary/10 to-transparent rounded-full blur-2xl" />
+                <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-muted/60 to-muted shadow-xl">
+                  <img
+                    src={profilePhoto}
+                    alt="Otabek Buranov"
+                    className="w-full object-cover object-top"
+                    style={{ aspectRatio: '3/4' }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
                 </div>
-              ))}
+                <div className="absolute -bottom-3 -right-3 bg-card border border-border shadow-lg px-4 py-2 rounded-sm">
+                  <p className="text-xs font-mono text-muted-foreground">Cal State Fullerton</p>
+                  <p className="text-sm font-display font-bold text-primary">May 2026 · GPA 3.5</p>
+                </div>
+              </div>
             </motion.div>
-          </motion.div>
-        </div>
 
-        {/* Abstract hero graphic element */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-screen max-w-2xl pointer-events-none hidden lg:block overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background z-10" />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/50 to-background z-10" />
-          <motion.div
-            animate={{
-              rotate: 360,
-              scale: [1, 1.1, 1],
-            }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="w-[800px] h-[800px] rounded-full border border-primary/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            style={{ backgroundImage: 'radial-gradient(circle at center, transparent 0%, transparent 40%, rgba(108, 99, 255, 0.04) 60%, rgba(0, 163, 122, 0.04) 100%)' }}
-          />
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="w-[600px] h-[600px] rounded-full border border-secondary/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            style={{ backgroundImage: 'radial-gradient(circle at center, transparent 0%, transparent 40%, rgba(108, 99, 255, 0.06) 60%, rgba(0, 163, 122, 0.04) 100%)' }}
-          />
+          </div>
         </div>
       </section>
 
@@ -348,20 +377,20 @@ export default function Home() {
               {
                 icon: <Target className="w-6 h-6 text-primary" />,
                 title: "Digital Marketing & SMM",
-                desc: "Data-backed campaigns, SEO optimization, and social strategies that drive qualified leads and actual conversions.",
-                tags: ["SEO", "SMM", "Google Ads"]
+                desc: "Data-backed campaigns, SEO optimization, and multi-platform social strategies that drive qualified leads and real conversions.",
+                tags: ["SEO", "Google Ads", "Meta Ads", "Hootsuite", "Google My Business", "Yelp", "Facebook", "TikTok", "CMS"]
               },
               {
                 icon: <Database className="w-6 h-6 text-secondary" />,
                 title: "Data Analytics & Strategy",
-                desc: "Translating raw metrics into actionable business intelligence. Dashboard creation, KPI tracking, and ROI analysis.",
-                tags: ["Power BI", "SQL", "Tableau"]
+                desc: "Translating raw metrics into actionable business intelligence. Dashboard creation, KPI tracking, ROI analysis, and audience insights.",
+                tags: ["Google Analytics", "GA4", "Power BI", "Tableau", "SQL", "Excel", "Meta Business Suite", "A/B Testing"]
               },
               {
                 icon: <Camera className="w-6 h-6 text-foreground" />,
                 title: "Visual Storytelling",
                 desc: "High-impact photography and content creation to elevate brand identity and support multi-channel campaigns.",
-                tags: ["Photography", "Adobe CC", "Content"]
+                tags: ["Lightroom", "Premiere Pro", "Canva", "CapCut", "Adobe CC", "Photography", "Reels / Shorts"]
               }
             ].map((card, idx) => (
               <motion.div key={idx} variants={fadeIn}>
@@ -399,7 +428,6 @@ export default function Home() {
             <motion.h2 variants={fadeIn} className="text-3xl md:text-5xl font-display font-bold mb-10 tracking-tight">
               Experience & Work
             </motion.h2>
-
             <WorkTabs />
           </motion.div>
         </div>
@@ -485,14 +513,11 @@ export default function Home() {
                 </div>
 
                 <div className="grid grid-cols-3 gap-1 mb-6 flex-grow content-start">
-                  {[captify1, captify2, captify3, captify4, captify5].map((src, i) => (
+                  {[captify1, captify2, captify3, captify4, captify5, captify6].map((src, i) => (
                     <div key={i} className="aspect-square relative overflow-hidden bg-muted">
                       <img src={src} alt={`Captify Glass post ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>
                   ))}
-                  <div className="aspect-square bg-muted border border-border flex items-center justify-center">
-                    <Instagram className="w-5 h-5 text-muted-foreground/40" />
-                  </div>
                 </div>
 
                 <Button asChild className="w-full rounded-sm bg-primary/10 text-primary hover:bg-primary hover:text-white border-0 transition-colors">
