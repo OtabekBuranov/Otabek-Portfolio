@@ -147,7 +147,7 @@ const WorkTabs = () => {
       role: "Digital Marketing & Client Relations",
       period: "05/2022–Present",
       location: "SF, CA",
-      desc: "Grew Instagram to 30K accounts reached, drove +30% lead volume via SEO and Google Analytics. Managed full digital presence across Instagram, Facebook, Google Business Profile, and Yelp — including CMS updates, reputation management, and paid promotions.",
+      desc: "Grew Instagram to 30K+ accounts reached and increased qualified lead volume by 30% through SEO optimization and paid social campaigns tracked via Google Analytics. Prospected and closed corporate accounts by pitching tailored executive transportation packages — converting social engagement into direct sales across Instagram, Facebook, and Google Business Profile.",
       links: [
         { label: "@brbluxlimo", url: "https://www.instagram.com/brbluxlimo", icon: <Instagram className="w-3 h-3" /> },
         { label: "brbluxlimo.com", url: "https://brbluxlimo.com", icon: <ExternalLink className="w-3 h-3" /> }
@@ -158,7 +158,7 @@ const WorkTabs = () => {
       role: "Head Social Media Manager & Sales Specialist",
       period: "06/2025–09/2025",
       location: "SF, CA",
-      desc: "50K+ accounts reached across Instagram, TikTok, Facebook, X (Twitter), and YouTube Shorts. Produced 5+ content pieces daily, built 2-week content calendars, and executed campaigns across 15 optical stores and 8 senior living centers.",
+      desc: "Expanded product adoption across 15 optical stores and 8 senior living centers by positioning Captify Glass as a health-tech assistive solution. Drove 50K+ accounts reached across all social platforms through targeted content and growth strategies, delivering 5+ high-quality pieces daily with a 24-hour turnaround.",
       links: [
         { label: "@captifyglass", url: "https://www.instagram.com/captifyglass", icon: <Instagram className="w-3 h-3" /> }
       ]
@@ -168,7 +168,7 @@ const WorkTabs = () => {
       role: "Freelance Photographer",
       period: "12/2022–Present",
       location: "CA",
-      desc: "20K+ accounts reached, 550+ followers, A/B tested content and ads to optimize engagement",
+      desc: "Built and managed a photography brand on Instagram, maintaining 20K+ accounts reached and 550+ followers. Pitched photography packages emphasizing ROI for visual branding to 5 clients, expanding business through direct outreach. A/B tested content and ads to optimize engagement rate and audience growth.",
       links: [
         { label: "@shotby_ot", url: "https://www.instagram.com/shotby_ot", icon: <Instagram className="w-3 h-3" /> }
       ]
@@ -178,7 +178,7 @@ const WorkTabs = () => {
       role: "Media Team Intern - Photographer",
       period: "08/2023–02/2025",
       location: "Fullerton, CA",
-      desc: "1,000+ photos/game same-day turnaround, promoted athletics to 5K+ followers",
+      desc: "Photographed a variety of sports weekly with 1,000+ photos processed and delivered same-day after every game. Supported the media team in promoting CSUF Athletics to a social following of 5,000+.",
       links: []
     }
   ];
