@@ -35,6 +35,11 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
 };
 
+const titleReveal = {
+  hidden: { opacity: 0, y: 48 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] } }
+};
+
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -309,12 +314,12 @@ export default function Home() {
                   className="relative w-full h-full object-cover object-top scale-110"
                 />
               </div>
-              <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[1.05]">
+              <motion.h1 variants={titleReveal} className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[1.05]">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Otabek Buranov</span>
-              </h1>
+              </motion.h1>
             </motion.div>
 
-            <motion.h2 variants={fadeIn} className="text-xl md:text-2xl font-display font-medium text-foreground mb-6 tracking-tight">
+            <motion.h2 variants={titleReveal} className="text-xl md:text-2xl font-display font-medium text-foreground mb-6 tracking-tight">
               Digital Marketing Specialist & Data Analyst
             </motion.h2>
 
@@ -434,7 +439,7 @@ export default function Home() {
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
           >
-            <motion.h2 variants={fadeIn} className="text-3xl md:text-5xl font-display font-bold mb-10 tracking-tight">
+            <motion.h2 variants={titleReveal} className="text-3xl md:text-5xl font-display font-bold mb-10 tracking-tight">
               Experience & Work
             </motion.h2>
             <WorkTabs />
@@ -453,7 +458,7 @@ export default function Home() {
           >
             <motion.div variants={fadeIn} className="flex items-center gap-3 mb-10">
               <Instagram className="w-6 h-6 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight">Social Presence</h2>
+              <motion.h2 variants={titleReveal} className="text-3xl md:text-4xl font-display font-bold tracking-tight">Social Presence</motion.h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
@@ -572,7 +577,7 @@ export default function Home() {
             variants={staggerContainer}
             className="max-w-4xl mx-auto"
           >
-            <motion.h2 variants={fadeIn} className="text-2xl md:text-3xl font-display font-bold mb-8 text-center tracking-tight">
+            <motion.h2 variants={titleReveal} className="text-2xl md:text-3xl font-display font-bold mb-8 text-center tracking-tight">
               Certifications
             </motion.h2>
 
@@ -615,7 +620,7 @@ export default function Home() {
             variants={staggerContainer}
             className="flex flex-col items-center text-center max-w-2xl mx-auto"
           >
-            <motion.h2 variants={fadeIn} className="text-4xl md:text-6xl font-display font-bold mb-8 tracking-tight">
+            <motion.h2 variants={titleReveal} className="text-4xl md:text-6xl font-display font-bold mb-8 tracking-tight">
               Let's build something <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">that converts.</span>
             </motion.h2>
