@@ -168,7 +168,7 @@ const WorkTabs = () => {
       role: "Freelance Photographer",
       period: "12/2022–Present",
       location: "CA",
-      desc: "Managed a photography brand on Instagram with 20K+ accounts reached and 550+ followers. Pitched visual branding packages to 5 clients and A/B tested content and ads to optimize engagement and audience growth.",
+      desc: "Managed a photography brand on Instagram with 20K+ accounts reached and 550+ followers. Pitched visual branding packages to 5 clients; A/B tested content and ads to optimize engagement and audience growth.",
       links: [
         { label: "@shotby_ot", url: "https://www.instagram.com/shotby_ot", icon: <Instagram className="w-3 h-3" /> }
       ]
