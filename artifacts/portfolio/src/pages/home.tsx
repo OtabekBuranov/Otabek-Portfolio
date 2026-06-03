@@ -310,7 +310,7 @@ export default function Home() {
                   alt="Otabek Buranov"
                   fetchPriority="high"
                   decoding="sync"
-                  className="relative w-full h-full object-contain object-center"
+                  className="relative w-full h-full object-cover object-center scale-110"
                 />
               </div>
               <motion.h1 variants={titleReveal} className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[1.05]">
