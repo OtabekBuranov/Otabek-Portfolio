@@ -152,7 +152,7 @@ const WorkTabs = () => {
       role: "Digital Marketing & Client Relations",
       period: "05/2022–Present",
       location: "SF, CA",
-      desc: "Grew Instagram to 30K+ accounts reached and boosted qualified lead volume by 30% via SEO and paid social tracked through Google Analytics. Prospected and closed corporate accounts by pitching executive transportation packages, converting social engagement into direct sales.",
+      desc: "Grew Instagram to 30K+ accounts reached through content marketing, community engagement, and A/B tested messaging. Increased qualified lead volume by 30% via SEO, paid social, and demand generation tracked in Google Analytics with HubSpot lead nurturing workflows. Prospected and closed corporate accounts by pitching tailored executive transportation packages.",
       links: [
         { label: "@brbluxlimo", url: "https://www.instagram.com/brbluxlimo", icon: <Instagram className="w-3 h-3" /> },
         { label: "brbluxlimo.com", url: "https://brbluxlimo.com", icon: <ExternalLink className="w-3 h-3" /> }
@@ -163,7 +163,7 @@ const WorkTabs = () => {
       role: "Head Social Media Manager & Sales Specialist",
       period: "06/2025–09/2025",
       location: "SF, CA",
-      desc: "Drove 50K+ accounts reached across all platforms while expanding adoption into 15 optical stores and 8 senior living centers. Delivered 5+ content pieces daily with a 24-hour turnaround to maintain consistent brand visibility.",
+      desc: "Drove 50K+ accounts reached across all platforms through targeted social campaigns and Power BI data dashboards. Expanded brand adoption into 15 optical stores and 8 senior living centers via health-tech positioning. Delivered 5+ high-quality video content pieces daily with 24-hour turnaround, tracking engagement via Salesforce.",
       links: [
         { label: "@captifyglass", url: "https://www.instagram.com/captifyglass", icon: <Instagram className="w-3 h-3" /> }
       ]
@@ -173,7 +173,7 @@ const WorkTabs = () => {
       role: "Freelance Photographer",
       period: "12/2022–Present",
       location: "CA",
-      desc: "Managed a photography brand on Instagram with 20K+ accounts reached and 550+ followers. Pitched visual branding packages to 5 clients; A/B tested content and ads to optimize engagement and audience growth.",
+      desc: "Managed a photography brand on Instagram with 20K+ accounts reached and 550+ followers. Pitched visual branding packages emphasizing ROI to 5 clients; A/B tested content and ads to optimize engagement and audience growth.",
       links: [
         { label: "@shotby_ot", url: "https://www.instagram.com/shotby_ot", icon: <Instagram className="w-3 h-3" /> }
       ]
