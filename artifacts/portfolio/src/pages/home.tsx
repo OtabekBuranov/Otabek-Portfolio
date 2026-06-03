@@ -28,7 +28,7 @@ import brb6 from '@assets/image_1778570000350.png';
 
 import brbWebsite from '@assets/image_1778570197666.png';
 import captifyWebsite from '@assets/image_1778573945230.png';
-import profilePhoto from '@assets/otabek_profile.png';
+import profilePhoto from '@assets/DSC00343_1780528682129.JPG';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -304,14 +304,13 @@ export default function Home() {
 
             {/* Name + photo inline */}
             <motion.div variants={fadeIn} className="flex items-center gap-5 mb-4">
-              <div className="relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-md">
-                <div className="absolute inset-0 bg-gradient-to-b from-muted/40 to-muted/80" />
+              <div className="relative shrink-0 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-md ring-2 ring-primary/20">
                 <img
                   src={profilePhoto}
                   alt="Otabek Buranov"
                   fetchPriority="high"
                   decoding="sync"
-                  className="relative w-full h-full object-cover object-top scale-110"
+                  className="relative w-full h-full object-contain object-center"
                 />
               </div>
               <motion.h1 variants={titleReveal} className="text-5xl md:text-7xl font-display font-bold tracking-tighter leading-[1.05]">
