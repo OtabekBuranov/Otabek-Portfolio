@@ -40,7 +40,10 @@ jobs:
         run: pnpm --filter @workspace/portfolio run build
         env:
           PORT: "4173"
-          BASE_PATH: "/${{ github.event.repository.name }}/"
+          BASE_PATH: "/"
+
+      - name: Configure custom domain
+        run: echo "otabekburanov.me" > artifacts/portfolio/dist/public/CNAME
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
