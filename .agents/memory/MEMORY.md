@@ -1,0 +1,1 @@
+- [GitHub push authorization](github-push-auth.md) — A healthy OAuth status does not guarantee Git CLI push works; verify Git transport before claiming success.
